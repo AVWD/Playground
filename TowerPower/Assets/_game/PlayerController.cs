@@ -90,6 +90,7 @@ public class PlayerController : MonoBehaviour
         // Sprint / Stamina
         if(stamina > sprintCost)
         {
+            if (Input.GetKeyDown(KeyCode.LeftShift)) GameManager.instance.sprint();
             sprint = Input.GetKey(KeyCode.LeftShift) ? 2 : 1;
             if (sprint == 2) stamina -= sprintCost;
         } else
@@ -113,6 +114,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Fire(GameObject bullet)
     {
+        GameManager.instance.shoot();
         yield return new WaitForSeconds(10);
         Release(bullet);
     }

@@ -124,6 +124,7 @@ public class TowerScript : MonoBehaviour {
 
     IEnumerator Fire(GameObject bullet)
     {
+        GameManager.instance.enemyShot();
         yield return new WaitForSeconds(10);
         Release(bullet);
     }
